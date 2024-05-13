@@ -1,6 +1,10 @@
 package com.batch.entity;
 
 
+
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,6 +12,8 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "persons")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
 
     @Id
@@ -19,5 +25,7 @@ public class Person {
     private int age;
     @Column(name = "insertion_date")
     private String insertionDate;
+
+
 
 }
